@@ -7,30 +7,25 @@ defmodule PhoenixSolidMarkdown.Mixfile do
   def project do
     [
       app: :phoenix_solid_markdown,
+      name: "phoenix_solid_markdown",
       version: @version,
       elixir: "~> 1.1",
+      elixirc_paths: elixirc_paths(Mix.env()),
+      start_permanent: Mix.env() == :prod,
       deps: deps(),
-      package: [
-        contributors: ["Lorant Kurthy"],
-        maintainers: ["Lorant Kurthy"],
-        licenses: ["MIT"],
-        links: %{
-          "GitHub" => @github,
-        }
-      ],
-
-      name: "phoenix_solid_markdown",
-      source_url: @github,
       docs: docs(),
-      description: """
-      Markdown Template Engine with Liquid expressions for Phoenix. Uses Earmark and Solid to render.
-      """
+      description: description(),
+      package: package(),
+      source_url: @github,
     ]
   end
 
   def application do
     [extra_applications: [:logger]]
   end
+
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_), do: ["lib"]
 
   defp deps do
     [
@@ -49,10 +44,27 @@ defmodule PhoenixSolidMarkdown.Mixfile do
 
   defp docs do
     [
-      extras: ["README.md"],
+      main: "PhoenixSolidMarkdown",
       source_ref: "v#{@version}",
-      main: "PhoenixSolidMarkdown"
+      source_url: @github,
+      extras: ["README.md"]
     ]
   end
 
+  defp description() do
+    """
+    Markdown Template Engine with Liquid expressions for Phoenix. Uses Earmark and Solid to render.
+    """
+  end
+
+  defp package do
+    %{
+      contributors: ["Lorant Kurthy"],
+      maintainers: ["Lorant Kurthy"],
+      licenses: ["MIT"],
+      links: %{
+        "GitHub" => @github,
+      }
+    }
+  end
 end
