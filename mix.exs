@@ -1,7 +1,7 @@
 defmodule PhoenixSolidMarkdown.Mixfile do
   use Mix.Project
 
-  @version "0.1.0"
+  @version "0.1.0-rc.0"
   @github "https://github.com/lorantkurthy/phoenix_solid_markdown"
 
   def project do

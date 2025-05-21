@@ -8,7 +8,7 @@ A Markdown template engine for [Phoenix](https://www.phoenixframework.org/). It 
 
 ## Usage
 
-1. Add `{:phoenix_solid_markdown, "~> 0.1.0"}` to your deps in `mix.exs`.
+1. Add `{:phoenix_solid_markdown, "~> 0.1.0-rc.0"}` to your deps in `mix.exs`.
 2. Add the following to your Phoenix `config/config.exs`
 ```elixir
   config :phoenix, :template_solid_engines,
